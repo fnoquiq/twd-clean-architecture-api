@@ -1,10 +1,16 @@
 export class Email {
   static validate(email: string) {
+    
     if (!email) {
       return false
     }
 
     if (email.length > 320) {
+      return false
+    }
+
+    const email_regex = /^[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~](\.?[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/
+    if (!email_regex.test(email)) {
       return false
     }
 
